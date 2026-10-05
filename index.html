@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PAPA GAMES — компьютерные клубы в Тюмени. Играй, соревнуйся, будь частью комьюнити.">
+  <title>PAPA GAMES — компьютерные клубы в Тюмени</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050609;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 86px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      background: rgba(4, 5, 9, .72);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .brand img {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+    }
+
+    nav {
+      display: flex;
+      gap: 34px;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    nav a {
+      opacity: .78;
+      transition: .25s;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      color: #25baff;
+    }
+
+    .header-button {
+      padding: 14px 22px;
+      border-radius: 8px;
+      background: #138dff;
+      opacity: 1;
+      box-shadow: 0 0 30px rgba(19,141,255,.28);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 150px 7% 90px;
+      background:
+        linear-gradient(90deg, rgba(3,4,8,.98) 0%, rgba(3,4,8,.88) 37%, rgba(3,4,8,.42) 70%, rgba(3,4,8,.65) 100%),
+        linear-gradient(0deg, #050609 0%, transparent 28%),
+        url("photo_2024-12-28_15-02-55 (2).jpg") center/cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 80% 45%, rgba(0,88,255,.18), transparent 38%),
+        radial-gradient(circle at 25% 80%, rgba(255,38,0,.07), transparent 30%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #32baff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 26px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 2px;
+      background: #32baff;
+      box-shadow: 0 0 12px #32baff;
+    }
+
+    h1 {
+      font-size: clamp(58px, 8vw, 120px);
+      line-height: .86;
+      letter-spacing: -5px;
+      font-weight: 1000;
+      margin-bottom: 28px;
+    }
+
+    h1 span {
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(255,255,255,.72);
+    }
+
+    .hero-text {
+      max-width: 650px;
+      color: #b8bdca;
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.55;
+      margin-bottom: 38px;
+    }
+
+    .hero-text strong {
+      color: white;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 17px 26px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: .7px;
+      font-weight: 900;
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg,#0d83ff,#22b9ff);
+      box-shadow: 0 10px 35px rgba(0,133,255,.27);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* STATS */
+
+    .stats {
+      position: relative;
+      z-index: 4;
+      max-width: 1250px;
+      margin: -55px auto 0;
+      padding: 0 25px;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+    }
+
+    .stat {
+      padding: 30px;
+      background: #0b0d13;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .stat:first-child {
+      border-radius: 12px 0 0 12px;
+    }
+
+    .stat:last-child {
+      border-radius: 0 12px 12px 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+
+    .stat span {
+      color: #737b8e;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      font-weight: bold;
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 110px 7%;
+    }
+
+    .section-top {
+      max-width: 1250px;
+      margin: auto auto 45px;
+    }
+
+    .section-number {
+      color: #178fff;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(38px,5vw,68px);
+      letter-spacing: -2px;
+      line-height: .95;
+    }
+
+    .muted {
+      color: #858b99;
+      margin-top: 18px;
+      line-height: 1.6;
+      max-width: 650px;
+    }
+
+    /* CLUBS */
+
+    .clubs {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .club {
+      height: 540px;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .club-one {
+      background-image:
+        linear-gradient(0deg,rgba(3,4,8,.98),rgba(3,4,8,.05) 70%),
+        url("photo_2024-12-29_11-04-30.jpg");
+    }
+
+    .club-two {
+      background-image:
+        linear-gradient(0deg,rgba(3,4,8,.98),rgba(3,4,8,.05) 70%),
+        url("photo_2026-05-13_20-57-41.jpg");
+    }
+
+    .club-content {
+      position: absolute;
+      left: 35px;
+      right: 35px;
+      bottom: 35px;
+    }
+
+    .club-label {
+      color: #32baff;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .club h3 {
+      font-size: 35px;
+      margin-bottom: 9px;
+    }
+
+    .club p {
+      color: #9ba0ad;
+      margin-bottom: 22px;
+    }
+
+    /* ATMOSPHERE */
+
+    .gallery {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.4fr .8fr .8fr;
+      grid-template-rows: 250px 250px;
+      gap: 12px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      filter: brightness(.78);
+      transition: .35s;
+    }
+
+    .gallery img:hover {
+      filter: brightness(1);
+      transform: scale(1.01);
+    }
+
+    .gallery img:first-child {
+      grid-row: 1/3;
+    }
+
+    /* PGC */
+
+    .pgc {
+      max-width: 1250px;
+      min-height: 450px;
+      margin: auto;
+      padding: 70px;
+      display: flex;
+      align-items: flex-end;
+      border-radius: 18px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg,rgba(5,6,9,.96),rgba(5,6,9,.55)),
+        url("заставка с турниром.png") center/cover;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .pgc-content {
+      max-width: 680px;
+    }
+
+    .pgc h2 {
+      margin: 10px 0 20px;
+    }
+
+    .pgc p {
+      color: #aaaeba;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    /* CONTACTS */
+
+    .contacts {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .contact {
+      background: #0b0d13;
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 35px;
+      border-radius: 12px;
+    }
+
+    .contact small {
+      color: #168fff;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+    }
+
+    .contact h3 {
+      font-size: 25px;
+      margin: 12px 0;
+    }
+
+    .contact p {
+      color: #858b99;
+    }
+
+    footer {
+      padding: 50px 7%;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: #737987;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width: 850px) {
+
+      header {
+        height: 72px;
+        padding: 0 5%;
+      }
+
+      .brand img {
+        width: 53px;
+        height: 53px;
+      }
+
+      .brand span {
+        display: none;
+      }
+
+      nav a:not(.header-button) {
+        display: none;
+      }
+
+      .hero {
+        min-height: 92vh;
+        padding: 130px 6% 90px;
+        background-position: 60% center;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        margin-top: -30px;
+      }
+
+      .stat:first-child,
+      .stat:last-child {
+        border-radius: 0;
+      }
+
+      section {
+        padding: 80px 5%;
+      }
+
+      .clubs {
+        grid-template-columns: 1fr;
+      }
+
+      .club {
+        height: 450px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 320px 220px 220px;
+      }
+
+      .gallery img:first-child {
+        grid-column: 1/3;
+        grid-row: auto;
+      }
+
+      .pgc {
+        padding: 40px 25px;
+        min-height: 520px;
+      }
+
+      .contacts {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="#" class="brand">
+    <img src="заставка с турниром.png" alt="PAPA GAMES">
+    <span>PAPA GAMES</span>
+  </a>
+
+  <nav>
+    <a href="#clubs">Клубы</a>
+    <a href="#gallery">Атмосфера</a>
+    <a href="#pgc">PGC</a>
+    <a href="#contacts">Контакты</a>
+    <a href="#clubs" class="header-button">Выбрать клуб</a>
+  </nav>
+</header>
+
+
+<main>
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">Компьютерные клубы • Тюмень</div>
+
+    <h1>
+      ИГРАЙ.<br>
+      <span>ПОБЕЖДАЙ.</span>
+    </h1>
+
+    <p class="hero-text">
+      <strong>PAPA GAMES</strong> — место, где игры становятся больше,
+      чем просто развлечением. Играй с друзьями, участвуй в турнирах
+      и становись частью нашего комьюнити.
+    </p>
+
+    <div class="buttons">
+      <a href="#clubs" class="btn btn-primary">Выбрать клуб →</a>
+      <a href="#gallery" class="btn btn-secondary">Посмотреть клуб</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="stats">
+
+  <div class="stat">
+    <strong>2</strong>
+    <span>клуба в Тюмени</span>
+  </div>
+
+  <div class="stat">
+    <strong>55+</strong>
+    <span>игровых мест</span>
+  </div>
+
+  <div class="stat">
+    <strong>24/7</strong>
+    <span>играем без остановки</span>
+  </div>
+
+  <div class="stat">
+    <strong>PGC</strong>
+    <span>собственная лига CS2</span>
+  </div>
+
+</div>
+
+
+<section id="clubs">
+
+  <div class="section-top">
+    <div class="section-number">01 / КЛУБЫ</div>
+    <h2>ВЫБЕРИ СВОЙ<br>PAPA GAMES</h2>
+    <p class="muted">
+      Два клуба в Тюмени. Выбирай удобную локацию,
+      собирай команду и приходи играть.
+    </p>
+  </div>
+
+  <div class="clubs">
+
+    <article class="club club-one">
+      <div class="club-content">
+        <div class="club-label">PAPA GAMES / 01</div>
+        <h3>ЯМСКАЯ</h3>
+        <p>ул. Ямская, 71а/1</p>
+        <a class="btn btn-primary" href="#">Подробнее →</a>
+      </div>
+    </article>
+
+    <article class="club club-two">
+      <div class="club-content">
+        <div class="club-label">PAPA GAMES / 02</div>
+        <h3>МАЛЫГИНА</h3>
+        <p>ул. Малыгина, 75</p>
+        <a class="btn btn-primary" href="#">Подробнее →</a>
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+
+<section id="gallery">
+
+  <div class="section-top">
+    <div class="section-number">02 / АТМОСФЕРА</div>
+    <h2>ЗДЕСЬ НАЧИНАЕТСЯ<br>ТВОЯ ИГРА</h2>
+  </div>
+
+  <div class="gallery">
+    <img src="photo_2024-12-28_15-02-55.jpg" alt="PAPA GAMES">
+    <img src="photo_2026-05-13_20-57-43.jpg" alt="PAPA GAMES">
+    <img src="photo_2026-05-13_20-57-44.jpg" alt="PAPA GAMES">
+    <img src="photo_2026-05-13_20-57-51.jpg" alt="PAPA GAMES">
+    <img src="photo_2026-05-13_20-59-35.jpg" alt="PAPA GAMES">
+  </div>
+
+</section>
+
+
+<section id="pgc">
+
+  <div class="pgc">
+
+    <div class="pgc-content">
+
+      <div class="eyebrow">PAPA GAMES CHAMPIONSHIP</div>
+
+      <h2>БОЛЬШЕ, ЧЕМ<br>ПРОСТО КЛУБ.</h2>
+
+      <p>
+        PAPA GAMES CHAMPIONSHIP — собственная лига CS2.
+        Команды, матчи, трансляции и большой офлайн-финал.
+        Мы создаём киберспортивное комьюнити Тюмени.
+      </p>
+
+      <a href="https://pgc72.ru" target="_blank" class="btn btn-primary">
+        Перейти на PGC →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="contacts">
+
+  <div class="section-top">
+    <div class="section-number">03 / КОНТАКТЫ</div>
+    <h2>УВИДИМСЯ<br>В PAPA GAMES</h2>
+  </div>
+
+  <div class="contacts">
+
+    <div class="contact">
+      <small>КЛУБ 01</small>
+      <h3>Ямская 71а/1</h3>
+      <p>Тюмень • PAPA GAMES</p>
+    </div>
+
+    <div class="contact">
+      <small>КЛУБ 02</small>
+      <h3>Малыгина 75</h3>
+      <p>Тюмень • PAPA GAMES</p>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div>
+    © 2026 PAPA GAMES
+  </div>
+
+  <div>
+    МЫ БОЛЬШЕ, ЧЕМ ПРОСТО КОМПЬЮТЕРНЫЕ КЛУБЫ
+  </div>
+
+</footer>
+
+</body>
+</html>

@@ -504,6 +504,18 @@
       }
     }
 
+
+    .club-details{max-width:1250px;margin:24px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .price-card{background:linear-gradient(180deg,#0d1017,#080a0f);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:30px}
+    .price-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:22px}
+    .price-head small{color:#32baff;font-weight:900;letter-spacing:1.5px}.price-head h3{font-size:30px;margin-top:8px}
+    .bonus{padding:10px 14px;border-radius:8px;background:rgba(19,141,255,.12);border:1px solid rgba(50,186,255,.25);color:#cceeff;font-weight:800;font-size:12px}
+    .zone{padding:18px 0;border-top:1px solid rgba(255,255,255,.08)}.zone-title{display:flex;justify-content:space-between;gap:15px;margin-bottom:9px}
+    .zone-title strong{font-size:18px}.zone-title span{color:#32baff;font-weight:900}.zone p{color:#858b99;font-size:13px;line-height:1.55;margin:0}
+    .price-actions{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}.price-note{color:#737b8e;font-size:12px;line-height:1.5;margin-top:15px}
+    .pgc-badges{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 25px}.pgc-badges span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:9px 12px;border-radius:999px;font-size:11px;font-weight:900}
+    @media(max-width:850px){.club-details{grid-template-columns:1fr}.price-card{padding:22px}.price-head{flex-direction:column}.club{height:390px}}
+
   </style>
 </head>
 
@@ -580,40 +592,27 @@
 
 
 <section id="clubs">
-
-  <div class="section-top">
-    <div class="section-number">01 / КЛУБЫ</div>
-    <h2>ВЫБЕРИ СВОЙ<br>PAPA GAMES</h2>
-    <p class="muted">
-      Два клуба в Тюмени. Выбирай удобную локацию,
-      собирай команду и приходи играть.
-    </p>
-  </div>
-
+  <div class="section-top"><div class="section-number">01 / КЛУБЫ</div><h2>ВЫБЕРИ СВОЙ<br>PAPA GAMES</h2><p class="muted">Два клуба в Тюмени. Выбирай подходящую зону, собирай команду и бронируй место.</p></div>
   <div class="clubs">
-
-    <article class="club club-one">
-      <div class="club-content">
-        <div class="club-label">PAPA GAMES / 01</div>
-        <h3>ЯМСКАЯ</h3>
-        <p>ул. Ямская, 71а/1</p>
-        <a class="btn btn-primary" href="#">Подробнее →</a>
-      </div>
-    </article>
-
-    <article class="club club-two">
-      <div class="club-content">
-        <div class="club-label">PAPA GAMES / 02</div>
-        <h3>МАЛЫГИНА</h3>
-        <p>ул. Малыгина, 75</p>
-        <a class="btn btn-primary" href="#">Подробнее →</a>
-      </div>
-    </article>
-
+    <article class="club club-one"><div class="club-content"><div class="club-label">PAPA GAMES / 01</div><h3>ЯМСКАЯ</h3><p>ул. Ямская, 71а/1</p><a class="btn btn-primary" href="https://langame.ru/club/799454681" target="_blank">Забронировать →</a></div></article>
+    <article class="club club-two"><div class="club-content"><div class="club-label">PAPA GAMES / 02</div><h3>МАЛЫГИНА</h3><p>ул. Малыгина, 75</p><a class="btn btn-primary" href="https://langame.ru/club/799458956" target="_blank">Забронировать →</a></div></article>
   </div>
-
+  <div class="club-details">
+    <article class="price-card"><div class="price-head"><div><small>ЯМСКАЯ / 71А/1</small><h3>ЗОНЫ И ЦЕНЫ</h3></div><div class="bonus">250 БОНУСОВ<br>НОВЫМ ГОСТЯМ</div></div>
+      <div class="zone"><div class="zone-title"><strong>PINK ZONE</strong><span>от 170 ₽ / час</span></div><p>24″ 240 Гц · i5-12400F · 16 GB RAM · RTX 4060</p></div>
+      <div class="zone"><div class="zone-title"><strong>RED ZONE</strong><span>от 190 ₽ / час</span></div><p>24″ 300 Гц · i5-12400F · 16 GB RAM · RTX 4060</p></div>
+      <div class="zone"><div class="zone-title"><strong>BLUE ZONE</strong><span>от 190 ₽ / час</span></div><p>27″ 280 Гц · i5-12400F · 32 GB RAM · RTX 4060 Ti</p></div>
+      <div class="zone"><div class="zone-title"><strong>VIP</strong><span>от 250 ₽ / час</span></div><p>Solo / Duo / Trio · i5-14600KF · RTX 5070</p></div>
+      <div class="price-actions"><a class="btn btn-primary" href="https://langame.ru/club/799454681" target="_blank">Забронировать Ямскую →</a></div><p class="price-note">Пакетные и ночные тарифы — на странице бронирования.</p>
+    </article>
+    <article class="price-card"><div class="price-head"><div><small>МАЛЫГИНА / 75</small><h3>ЗОНЫ И ЦЕНЫ</h3></div><div class="bonus">250 БОНУСОВ<br>НОВЫМ ГОСТЯМ</div></div>
+      <div class="zone"><div class="zone-title"><strong>BOOTCAMP</strong><span>от 190 ₽ / час</span></div><p>i5-12400F · 32 GB RAM · RTX 5060 · 24″ 320 Гц · Logitech Superlight 2</p></div>
+      <div class="zone"><div class="zone-title"><strong>DUO / TRIO</strong><span>от 250 ₽ / час</span></div><p>i5-14600KF · 32 GB RAM · RTX 5060 / 5070 · 27″ 2K 320 Гц / 24″ 420 Гц</p></div>
+      <div class="zone"><div class="zone-title"><strong>SOLO</strong><span>от 350 ₽ / час</span></div><p>Ryzen 7 7800X3D · 32 GB RAM · RTX 5070 · 24″ 600 Гц · Logitech Superstrike Pro X2</p></div>
+      <div class="price-actions"><a class="btn btn-primary" href="https://langame.ru/club/799458956" target="_blank">Забронировать Малыгина →</a></div><p class="price-note">Пакетные и ночные тарифы — на странице бронирования.</p>
+    </article>
+  </div>
 </section>
-
 
 <section id="gallery">
 
@@ -644,11 +643,12 @@
       <h2>БОЛЬШЕ, ЧЕМ<br>ПРОСТО КЛУБ.</h2>
 
       <p>
-        PAPA GAMES CHAMPIONSHIP — собственная лига CS2.
-        Команды, матчи, трансляции и большой офлайн-финал.
-        Мы создаём киберспортивное комьюнити Тюмени.
+        PAPA GAMES CHAMPIONSHIP — первая лига Тюмени по CS2.
+        Команды, регулярные матчи, трансляции и большой офлайн-финал.
+        PAPA GAMES — больше, чем просто компьютерные клубы.
       </p>
 
+      <div class="pgc-badges"><span>8 команд</span><span>7 недель</span><span>CS2</span><span>Офлайн-финал</span></div>
       <a href="https://pgc72.ru" target="_blank" class="btn btn-primary">
         Перейти на PGC →
       </a>
